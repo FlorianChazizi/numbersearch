@@ -26,11 +26,13 @@ This is a **personal project** focused on searching phone numbers on the interne
 
 Clone the repo and set up your environment variables for MongoDB connection.
 
+If you want me to customize or add more sections (like API docs, how to contribute, etc.), just say!
+
+
 ```bash
 npm install
 npm run dev
 
 
 
-If you want me to customize or add more sections (like API docs, how to contribute, etc.), just say!
 
