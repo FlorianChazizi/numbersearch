@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
 import SearchBanner from './components/SearchBanner';
-import LastViewedList from './components/LastViewedList';
+import LastReview from './components/LastReview';
 
 export default function Home() {
   return (
     <div >  
       <SearchBanner />
-      <LastViewedList />
+      <LastReview />
     </div>
   );
 }
