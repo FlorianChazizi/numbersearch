@@ -1,7 +1,14 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-const rankColors: Record<string, string> = {
+type Review = {
+  comment_id: string;
+  number: string;
+  comment: string;
+  rank: 'useful' | 'safe' | 'neutral' | 'annoying' | 'dangerous';
+};
+
+const rankColors: Record<Review['rank'], string> = {
   useful: 'bg-green-500/70',
   safe: 'bg-teal-500/70',
   neutral: 'bg-blue-400/50',
@@ -9,7 +16,7 @@ const rankColors: Record<string, string> = {
   dangerous: 'bg-pink-700/80',
 };
 
-const rankLabels: Record<string, string> = {
+const rankLabels: Record<Review['rank'], string> = {
   useful: 'Χρήσιμο',
   safe: 'Ασφαλές',
   neutral: 'Ουδέτερο',
@@ -18,10 +25,10 @@ const rankLabels: Record<string, string> = {
 };
 
 export default function RecentReviews() {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState<Review[]>([]);
 
   useEffect(() => {
-    fetch('/api/numbers') // Adjust if needed
+    fetch('/api/numbers')
       .then((res) => res.json())
       .then((data) => setReviews(data.numbers || []))
       .catch((err) => console.error('Failed to fetch recent reviews:', err));
@@ -36,7 +43,7 @@ export default function RecentReviews() {
       </h2>
 
       <div className="space-y-3">
-        {reviews.slice(0, 10).map((review: any, idx: number) => (
+        {reviews.slice(0, 10).map((review, idx) => (
           <a
             href={`/numbers/${review.number}`}
             key={review.comment_id || idx}
@@ -47,9 +54,9 @@ export default function RecentReviews() {
             </strong>
 
             <span
-              className={`text-white text-sm px-4 py-1 rounded-full ${rankColors[review.rank] || 'bg-gray-400'}`}
+              className={`text-white text-sm px-4 py-1 rounded-full ${rankColors[review.rank]}`}
             >
-              {rankLabels[review.rank] || 'Άγνωστο'}
+              {rankLabels[review.rank]}
             </span>
 
             <p className="text-sm text-gray-700 w-1/2 truncate">

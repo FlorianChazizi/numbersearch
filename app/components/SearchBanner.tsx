@@ -27,7 +27,7 @@ export default function SearchBanner() {
       <div className="max-w-2xl mx-auto text-center px-4">
         <h1 className="text-5xl font-extrabold mb-4">Δες ποιος σε κάλεσε</h1>
         <p className="text-lg mb-8 italic tracking-wide">
-          "Identify unknown callers. Share your experience. Stay informed."
+          &quot;Identify unknown callers. Share your experience. Stay informed.&quot;
         </p>
         <div className="flex items-center gap-4">
           <input
