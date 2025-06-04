@@ -39,7 +39,7 @@ export default function RecentReviews() {
   return (
     <section className="mt-12 px-4 sm:px-8">
       <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center sm:text-left">
-        Πρόσφατες Αξιολογήσεις των αριθμών
+        Πρόσφατες Αξιολογήσεις αριθμών
       </h2>
 
       <div className="space-y-3">
